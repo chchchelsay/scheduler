@@ -9,6 +9,7 @@ import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
+import Appointment from "components/Appointment/index.js";
 
 //BUTTON STORIES
 storiesOf("Button", module)
@@ -136,3 +137,6 @@ storiesOf("InterviewerList", module)
       onChange={action("setInterviewer")}
     />
   ));
+
+//APPOINTMENT STORIES
+
