@@ -37,8 +37,8 @@ console.log(day);
 
 <DayList
   days={days}
-  day={day}
-  setDay={setDay}
+  value={day}
+  onChange={setDay}
 />
 
 </nav>
