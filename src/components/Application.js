@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
+import axios from 'axios';
 
 const days = [
   {
@@ -70,8 +71,8 @@ const appointment = Object.values(appointments).map((appointment) => {
 });
 
 export default function Application(props) {
-  const [day, setDay] = useState("Monday");
-
+  const [day, setDay] = useState([]);
+  
   return (
     <main className="layout">
       <section className="sidebar">
