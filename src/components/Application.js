@@ -50,12 +50,12 @@ const appointments = [
 
 export default function Application(props) {
   const [day, setDay] = useState([]);
-  const [dayData, setDayData] = useState([]);
+  const [days, setDays] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:8001/api/days')
       .then(res => {
-        setDayData(res.data)
+        setDays(res.data)
       })
       .catch(err => console.log(err))
   }, [])
@@ -81,9 +81,9 @@ export default function Application(props) {
       <nav className="sidebar__menu">
 
 <DayList
-  days={day}
+  days={days}
   day={day}
-  setDay={setDay}
+  onChange={setDay}
 />
 </nav>
 <img
