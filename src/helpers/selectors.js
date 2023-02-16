@@ -11,3 +11,15 @@ export const getAppointmentsForDay = (state, day) => {
   })
   return dailyAppointments.length ? dailyAppointments : [];
 }
+
+export const getInterview = (state, interview) => {
+  //console.log('state:', state);
+ if (!interview) {
+   return null;
+ }
+ const interviewer = state.interviewers[interview.interviewer];
+ if (!interviewer) {
+   return null;
+ }
+ return { ...interview, interviewer};
+};
