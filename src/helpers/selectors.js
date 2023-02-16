@@ -12,8 +12,8 @@ export const getAppointmentsForDay = (state, day) => {
   return dailyAppointments.length ? dailyAppointments : [];
 }
 
-export const getInterview = (state, interview) => {
-  //console.log('state:', state);
+export function getInterview (state, interview) {
+  console.log('state:', state);
  if (!interview) {
    return null;
  }
