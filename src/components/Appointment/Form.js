@@ -3,26 +3,29 @@ import Button from 'components/Button';
 import InterviewerList from 'components/InterviewerList';
 
 export default function Form(props) {
-  const [currentName, setName] = useState(props.name || "");
-  const [currentInterviewer, setInterviewer] = useState(props.value || null)
+  const [currentName, setName] = useState(props.currentName || "");
+  const [currentInterviewer, setInterviewer] = useState(props.interviewer || null)
 
   const reset = () => {
     setName("")
     setInterviewer('null')
   }
 
-  function cancel () {
+  const cancel = function() {
     reset();
-    props.onCancel()
+    props.onCancel();
   }
+
 
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off">
+        <form 
+        autoComplete="off"
+        onSubmit={event => event.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
-            name={props.name}
+            name="name"
             type="text"        
             onChange={(event) => setName(event.target.value)}            
             value={currentName}
@@ -30,13 +33,16 @@ export default function Form(props) {
             />
 
         </form>
-        <InterviewerList interviewers={props.interviewers} value={currentInterviewer} onChange={(event) => setInterviewer(event)} />
+        <InterviewerList 
+        interviewers={props.interviewers}
+        interviewer={currentInterviewer}
+        onChange={(event) => setInterviewer(event)} 
+        />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onSubmit={event => event.preventDefault()} onClick={event => props.onSave(currentName, currentInterviewer)}>Save</Button>
-        </section>
+        <Button danger onClick={cancel}>Cancel</Button>
+        <Button confirm onClick={() => props.onSave(currentName, currentInterviewer)}>Save</Button>        </section>
       </section>
     </main>
   )
