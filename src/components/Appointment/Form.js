@@ -3,18 +3,15 @@ import Button from 'components/Button';
 import InterviewerList from 'components/InterviewerList';
 
 export default function Form(props) {
-  //For keeping track of the name
   const [currentName, setName] = useState(props.name || "");
   const [currentInterviewer, setInterviewer] = useState(props.value || null)
 
-  //Helper function to clear all fields
   const reset = () => {
     setName("")
     setInterviewer('null')
   }
 
   function cancel () {
-    // props.onCancel;
     reset();
     props.onCancel()
   }
