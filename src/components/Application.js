@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
@@ -36,33 +35,35 @@ export default function Application(props) {
               ...state,
               appointments
             })
-            console.log("appointments", appointments)
           }
+        }).catch(error => {
+          throw new Error(error)
         })
     }
   
-  function cancelInterview(id, interview) {
-  
-      return axios.delete(`http://localhost:8001/api/appointments/${id}`)
-        .then((res) => { 
-  
+    function cancelInterview(id) {
+      return axios.delete(`/api/appointments/${id}`)
+      .then(response => {
+        if (response.status === 204) {
           const appointment = {
-            ...state.appointments,
+            ...state.appointments[id],
             interview: null
-          }
-  
+          };
+      
           const appointments = {
             ...state.appointments,
             [id]: appointment
-          }
-  
+          };
+      
           setState({
             ...state,
             appointments
           })
-      });
+        } 
+      }).catch(error => {
+        throw new Error(error)
+      })
     }
-
     
 const setDay = day => setState({ ...state, day });
 
@@ -122,7 +123,7 @@ useEffect(() => {
 </section>
 <section className="schedule">
   {appointment} 
-  <Appointment key="last" time="5pm" />
+  <Appointment lastAppointment={true} time="5pm" />
       </section>
     </main>
   );
