@@ -1,5 +1,4 @@
 export const getAppointmentsForDay = (state, day) => {
-
   const dailyAppointments = [];
 
   state.days.forEach((dayOfWeek) => {
@@ -12,8 +11,9 @@ export const getAppointmentsForDay = (state, day) => {
   return dailyAppointments.length ? dailyAppointments : [];
 }
 
+
 export function getInterview (state, interview) {
-  console.log('state:', state);
+  //console.log('state:', state);
  if (!interview) {
    return null;
  }
@@ -22,4 +22,16 @@ export function getInterview (state, interview) {
    return null;
  }
  return { ...interview, interviewer};
+};
+
+
+export function getInterviewersForDay(state, day) {
+
+  const currentDay = state.days.find(({name}) => name === day)
+  const interviewers = currentDay ? 
+  currentDay.interviewers.map(appointmentId => state.interviewers[appointmentId]) 
+  : []
+
+  //console.log(interviewers);
+  return interviewers;
 };

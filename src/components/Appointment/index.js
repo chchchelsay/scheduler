@@ -16,7 +16,10 @@ export default function Appointment(props) {
 
   return (
     <Fragment>
-      <Header time={props.time}></Header>
+      
+      <Header time={props.time} 
+      />
+      <article className="appointment">
       {mode === EMPTY && 
       <Empty onAdd={() => transition(CREATE)} 
       />}
@@ -29,9 +32,10 @@ export default function Appointment(props) {
 
       {mode === CREATE && (
         <Form
-          interviewers={[]}
+          interviewers={props.interviewers}
           onCancel={() => transition(EMPTY)}
         />)}
+</article>
     </Fragment>
   )
 }
