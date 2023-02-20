@@ -16,9 +16,57 @@ export default function Application(props) {
     interviewers: {}
   });
 
-  const setDay = day => setState({ ...state, day });
+  function bookInterview(id, interview) {
 
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
+    return axios.put(`api/appointments/${id}`, {interview})
+        .then(response => {
+          if (response.status === 204) {
+            
+            const appointment = {
+              ...state.appointments[id],
+              interview: { ...interview }
+            };
+        
+            const appointments = {
+              ...state.appointments,
+              [id]: appointment
+            };
+        
+            setState({
+              ...state,
+              appointments
+            })
+            console.log("appointments", appointments)
+          }
+        })
+    }
+  
+  function cancelInterview(id, interview) {
+  
+      return axios.delete(`http://localhost:8001/api/appointments/${id}`)
+        .then((res) => { 
+  
+          const appointment = {
+            ...state.appointments,
+            interview: null
+          }
+  
+          const appointments = {
+            ...state.appointments,
+            [id]: appointment
+          }
+  
+          setState({
+            ...state,
+            appointments
+          })
+      });
+    }
+
+    
+const setDay = day => setState({ ...state, day });
+
+const dailyAppointments = getAppointmentsForDay(state, state.day);
   
   const appointment = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -31,34 +79,10 @@ export default function Application(props) {
         interview={interview}
         interviewers={(getInterviewersForDay(state, state.day))}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
       )
   });
-
-function bookInterview(id, interview) {
-  
-  return axios.put(`api/appointments/${id}`, {interview})
-      .then(response => {
-        if (response.status === 204) {
-          
-          const appointment = {
-            ...state.appointments[id],
-            interview: { ...interview }
-          };
-      
-          const appointments = {
-            ...state.appointments,
-            [id]: appointment
-          };
-      
-          setState({
-            ...state,
-            appointments
-          })
-          console.log("appointments", appointments)
-        }
-      })
-  }
 
 
 useEffect(() => {
