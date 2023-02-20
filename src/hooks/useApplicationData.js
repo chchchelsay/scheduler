@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
+
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -18,15 +19,26 @@ export default function useApplicationData() {
     axios.get('/api/interviewers')
     ])
     .then(all => {
-   
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
     });
   }, [])
+
+  function selectDay(day) {
+    const days = {
+      Monday: 0,
+      Tuesday: 1,
+      Wednesday: 2,
+      Thursday: 3,
+      Friday: 4
+    }
+    return days[day]
+  }
 
   function bookInterview(id, interview) {
 
     return axios.put(`api/appointments/${id}`, {interview})
         .then(response => {
+
           if (response.status === 204) {
             
             const appointment = {
@@ -38,7 +50,9 @@ export default function useApplicationData() {
               ...state.appointments,
               [id]: appointment
             };
-        
+
+            state.days[selectDay(state.day)].spots-=1
+          
             setState({
               ...state,
               appointments
