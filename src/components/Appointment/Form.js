@@ -18,48 +18,51 @@ export default function Form(props) {
     reset();
   }
 
-  function validate() {
+  const validate = function() {
     if (currentName === "") {
-      setError("Student name cannot be blank")
+      setError("Student name cannot be blank");
       return;
     }
-    if (currentInterviewer === "") {
+
+    if (currentInterviewer === null) {
       setError("Please select an interviewer");
       return;
     }
+
+    setError("");
     props.onSave(currentName, currentInterviewer);
   }
-
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form 
-        autoComplete="off" 
-        onSubmit={event => event.preventDefault()}>
+        <form autoComplete="off" onSubmit={event => event.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
             name="name"
-            type="text"        
-            onChange={(event) => setName(event.target.value)}            
-            value={currentName}
+            type="text"
             placeholder="Enter Student Name"
+            value={currentName}
+            onChange={event => {
+              setName(event.target.value);
+            }}
             data-testid="student-name-input"
-           />
-
+          />
         </form>
-
         <section className="appointment__validation">{error}</section>
-
-        <InterviewerList
-        interviewers={props.interviewers}
-        interviewer={currentInterviewer} 
-        onChange={(event) => setInterviewer(event)}
+        <InterviewerList 
+          interviewers={props.interviewers} 
+          value={currentInterviewer} 
+          onChange={(event) => setInterviewer(event)} 
         />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onClick={validate}>Save</Button>
+          <Button danger onClick={cancel}>
+            Cancel
+          </Button>
+          <Button confirm onClick={validate}>
+            Save
+          </Button>
         </section>
       </section>
     </main>
