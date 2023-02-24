@@ -65,6 +65,7 @@ Edited Appointment Added
 !["Edited Appointment Added"](https://github.com/chchchelsay/scheduler/blob/master/public/images/8_editedAppt.png?raw=true)
 Delete Appointment 
 !["Delete Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/5_deleteAppt.png?raw=true)
+!["CurrentAppointments"](https://github.com/chchchelsay/scheduler/blob/master/public/images/1_currentState.png?raw=true)
 Cannot save without a name or selected interviewer
 !["Blank Student Name"](https://github.com/chchchelsay/scheduler/blob/master/public/images/6_blankStudentName.png?raw=true)
 !["No Interviewer"](https://github.com/chchchelsay/scheduler/blob/master/public/images/7_noInterviewer.png?raw=true)
