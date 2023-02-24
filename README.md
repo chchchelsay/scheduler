@@ -17,6 +17,14 @@ The front end of this project is built with **React** and makes requests to an A
 
 We utilised [**Jest**](https://jestjs.io/docs/getting-started), [**Storybook**](https://storybook.js.org/docs/react/get-started/introduction) (front-end UI), [**Cypress**](https://docs.cypress.io/guides/getting-started/installing-cypress) (end-to-end), and the Webpack Development server to learn about different methods of testing features.
 
+## Dependencies
+* axios: ^0.20.0
+* classnames: ^2.2.6
+* cypress: ^9.7.0
+* normalize.css: ^8.0.1
+* react: ^16.14.0
+* react-dom: ^16.9.0
+* react-scripts: ^.4.4
 
 ## Setup
 
