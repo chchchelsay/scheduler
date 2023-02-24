@@ -1,5 +1,5 @@
 # Interview Scheduler
-A Lighthouse Labs React project - February 2023.
+# A Lighthouse Labs React project - February 2023.
 
 Interview Scheduler is a single-page application (SPA) that allows users to book technical interviews between students and mentors. 
 
