@@ -1,3 +1,5 @@
+//these are helper functions used in Application.js to fetch interview/interviewer data based on selected day/appointment
+
 export const getAppointmentsForDay = (state, day) => {
   const dailyAppointments = [];
 
