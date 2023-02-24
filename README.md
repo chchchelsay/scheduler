@@ -53,7 +53,7 @@ npm run storybook
 ```
 
 ## Screenshots
-Current Appointments
+Current Appointments (Thursday view)
 !["CurrentAppointments"](https://github.com/chchchelsay/scheduler/blob/master/public/images/1_currentState.png?raw=true)
 Add a New Appointment - enter Student and select Interviewer
 !["Add a New Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/2_addNewBooking.png?raw=true)
