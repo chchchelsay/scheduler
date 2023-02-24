@@ -54,4 +54,3 @@ Cannot save without a name or selected interviewer
 !["Blank Student Name"](https://github.com/chchchelsay/scheduler/blob/master/public/images/6_blankStudentName.png?raw=true)
 !["No Interviewer"](https://github.com/chchchelsay/scheduler/blob/master/public/images/7_noInterviewer.png?raw=true)
 
-public/images/2_addNewBooking.png public/images/3_successfulAdd.png public/images/4_editAppt.png public/images/5_deleteAppt.png public/images/6_blankStudentName.png public/images/7_noInterviewer.png public/images/8_editedAppt.png
