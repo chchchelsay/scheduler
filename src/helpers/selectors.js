@@ -11,10 +11,10 @@ export const getAppointmentsForDay = (state, day) => {
   return dailyAppointments.length ? dailyAppointments : [];
 }
 
+/////////////////////////////////////////////////////////////////////////
 
 export function getInterview (state, interview) {
-  //console.log('state:', state);
- if (!interview) {
+  if (!interview) {
    return null;
  }
  const interviewer = state.interviewers[interview.interviewer];
@@ -24,6 +24,7 @@ export function getInterview (state, interview) {
  return { ...interview, interviewer};
 };
 
+/////////////////////////////////////////////////////////////////////////
 
 export function getInterviewersForDay(state, day) {
 
@@ -32,6 +33,5 @@ export function getInterviewersForDay(state, day) {
   currentDay.interviewers.map(appointmentId => state.interviewers[appointmentId]) 
   : []
 
-  //console.log(interviewers);
   return interviewers;
 };
