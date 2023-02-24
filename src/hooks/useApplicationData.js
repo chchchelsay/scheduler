@@ -9,9 +9,7 @@ export default function useApplicationData() {
     appointments: {},
     interviewers: {}
   });
-
-  const setDay = day => setState({ ...state, day });
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     Promise.all([
     axios.get('/api/days'),
@@ -22,6 +20,8 @@ export default function useApplicationData() {
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
     });
   }, [])
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const setDay = day => setState({ ...state, day });
 
   function selectDay(day) {
     const days = {
@@ -33,7 +33,7 @@ export default function useApplicationData() {
     }
     return days[day]
   }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   function bookInterview(id, interview) {
 
     return axios.put(`api/appointments/${id}`, {interview})
@@ -50,19 +50,21 @@ export default function useApplicationData() {
               ...state.appointments,
               [id]: appointment
             };
+          const days = [...state.days]
 
-            state.days[selectDay(state.day)].spots-=1
-          
+          days[selectDay(state.day)].spots-=1
+
             setState({
               ...state,
-              appointments
+              appointments,
+              days,
             })
           }
         }).catch(error => {
           throw new Error(error)
         })
     }
-  
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function cancelInterview(id) {
       return axios.delete(`/api/appointments/${id}`)
       .then(response => {
@@ -76,12 +78,17 @@ export default function useApplicationData() {
             ...state.appointments,
             [id]: appointment
           };
-      
-          setState({
-            ...state,
-            appointments
-          })
-        } 
+
+          const days = [...state.days]
+        
+          days[selectDay(state.day)].spots+=1
+
+            setState({
+              ...state,
+              appointments,
+              days,
+            })
+          } 
       }).catch(error => {
         throw new Error(error)
       })
