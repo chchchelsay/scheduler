@@ -7,12 +7,15 @@ export default function Error(props) {
     <h1 className="text--semi-bold">Error</h1>
     <h3 className="text--light">{props.message}</h3>
   </section>
-  <img
+  <button onClick={props.onClose}> 
+    <img
     className="appointment__error-close"
     src="images/close.png"
     alt="Close"
-    onClose={props.onClose}
   />
+
+</button>
+  
 </main>
   )
 }
