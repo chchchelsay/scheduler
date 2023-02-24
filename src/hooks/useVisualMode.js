@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
   function transition(newMode, replace) {
     setMode(newMode);
     setHistory(prev =>
@@ -15,6 +15,7 @@ export default function useVisualMode(initial) {
     )
   };
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
   function back() {
     const tempHistory = [...history];
     tempHistory.pop();

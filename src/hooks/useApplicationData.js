@@ -1,3 +1,5 @@
+//setDay, bookInterview, cancelInterview defined here are used as props in Application.js/DayList/DayListItem/index.js
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -10,7 +12,8 @@ export default function useApplicationData() {
     interviewers: {}
   });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  useEffect(() => {
+  
+useEffect(() => {
     Promise.all([
     axios.get('/api/days'),
     axios.get('/api/appointments'),
@@ -21,6 +24,7 @@ export default function useApplicationData() {
     });
   }, [])
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const setDay = day => setState({ ...state, day });
 
   function selectDay(day) {
@@ -34,6 +38,7 @@ const setDay = day => setState({ ...state, day });
     return days[day]
   }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
   function bookInterview(id, interview) {
 
     return axios.put(`api/appointments/${id}`, {interview})
@@ -65,7 +70,8 @@ const setDay = day => setState({ ...state, day });
         })
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function cancelInterview(id) {
+    
+  function cancelInterview(id) {
       return axios.delete(`/api/appointments/${id}`)
       .then(response => {
         if (response.status === 204) {
