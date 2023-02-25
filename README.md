@@ -1,5 +1,5 @@
 # Interview Scheduler
-A Lighthouse Labs React project - February 2023.
+# A Lighthouse Labs React project - February 2023.
 
 Interview Scheduler is a single-page application (SPA) that allows users to book technical interviews between students and mentors. 
 
@@ -53,7 +53,7 @@ npm run storybook
 ```
 
 ## Screenshots
-Current Appointments
+Current Appointments (Thursday view)
 !["CurrentAppointments"](https://github.com/chchchelsay/scheduler/blob/master/public/images/1_currentState.png?raw=true)
 Add a New Appointment - enter Student and select Interviewer
 !["Add a New Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/2_addNewBooking.png?raw=true)
@@ -65,6 +65,7 @@ Edited Appointment Added
 !["Edited Appointment Added"](https://github.com/chchchelsay/scheduler/blob/master/public/images/8_editedAppt.png?raw=true)
 Delete Appointment 
 !["Delete Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/5_deleteAppt.png?raw=true)
+!["CurrentAppointments"](https://github.com/chchchelsay/scheduler/blob/master/public/images/1_currentState.png?raw=true)
 Cannot save without a name or selected interviewer
 !["Blank Student Name"](https://github.com/chchchelsay/scheduler/blob/master/public/images/6_blankStudentName.png?raw=true)
 !["No Interviewer"](https://github.com/chchchelsay/scheduler/blob/master/public/images/7_noInterviewer.png?raw=true)
