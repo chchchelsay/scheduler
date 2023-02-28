@@ -36,7 +36,7 @@ export default function Appointment(props) {
     };
     transition(SAVING);
     props
-      .bookInterview(props.id, interview)
+      .bookInterview(props.id, interview, mode === EDIT)
       .then(() => transition(SHOW))
       .catch((error) => transition(ERROR_SAVE, true));
   }
@@ -111,17 +111,11 @@ export default function Appointment(props) {
       )}
 
       {mode === ERROR_SAVE && (
-        <Error
-          message={`ERROR: Appointment not saved.`}
-          onClose={() => transition(EMPTY)}
-        />
+        <Error message={`ERROR: Appointment not saved.`} onClose={back} />
       )}
 
       {mode === ERROR_DELETE && (
-        <Error
-          message={`ERROR: Appointment not deleted.`}
-          onClose={() => transition(SHOW)}
-        />
+        <Error message={`ERROR: Appointment not deleted.`} onClose={back} />
       )}
     </article>
   );
