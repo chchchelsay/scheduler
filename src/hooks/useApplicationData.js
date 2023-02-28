@@ -42,7 +42,7 @@ export default function useApplicationData() {
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  function bookInterview(id, interview) {
+  function bookInterview(id, interview, isEdit) {
     return axios
       .put(`api/appointments/${id}`, { interview })
       .then((response) => {
@@ -58,7 +58,9 @@ export default function useApplicationData() {
           };
           const days = [...state.days];
 
-          days[selectDay(state.day)].spots -= 1;
+          if (isEdit === false) {
+            days[selectDay(state.day)].spots -= 1;
+          }
 
           setState({
             ...state,
