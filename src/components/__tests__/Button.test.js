@@ -46,10 +46,7 @@ it("renders a clickable button", () => {
 it("renders a disabled button", () => {
   const handleClick = jest.fn();
   const { getByText } = render(
-    <Button 
-      disabled 
-      onClick={handleClick}
-    >
+    <Button disabled onClick={handleClick}>
       Disabled
     </Button>
   );
