@@ -57,7 +57,7 @@ npm run storybook
 ## Screenshots
 
 Add Appointment
-!["Add Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/ADD.gif?raw=true)
+!["Add Appointment"](https://github.com/chchchelsay/scheduler/commit/d2371a5cf5756f102af239cf74f5c6092ce9c1cc#diff-ccdc40d60e430ff37c54906bd975a18fe8f06804169a31c93f3bbe612dab1263)
 Edit Appointment
 !["Edit Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/DELETE.gif?raw=true)
 Delete Appointment
