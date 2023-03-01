@@ -59,7 +59,7 @@ npm run storybook
 Add Appointment
 !["Add Appointment"](https://github.com/chchchelsay/scheduler/blob/fixes/public/images/ADD.gif?raw=true)
 Edit Appointment
-!["Edit Appointment"](https://github.com/chchchelsay/scheduler/blob/fixes/public/images/DELETE.gif?raw=true)
+!["Edit Appointment"](https://github.com/chchchelsay/scheduler/blob/fixes/public/images/EDIT.gif?raw=true)
 Delete Appointment
 !["Delete Appointment"](https://github.com/chchchelsay/scheduler/blob/fixes/public/images/DELETE.gif?raw=true)
 
