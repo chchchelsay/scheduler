@@ -56,6 +56,14 @@ npm run storybook
 
 ## Screenshots
 
+Add Appointment
+!["Add Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/ADD.gif?raw=true)
+Edit Appointment
+!["Edit Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/DELETE.gif?raw=true)
+Delete Appointment
+!["Delete Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/DELETE.gif?raw=true)
+
+<!---
 Current Appointments (Thursday view)
 !["CurrentAppointments"](https://github.com/chchchelsay/scheduler/blob/master/public/images/1_currentState.png?raw=true)
 Add a New Appointment - enter Student and select Interviewer
@@ -72,3 +80,4 @@ Delete Appointment
 Cannot save without a name or selected interviewer
 !["Blank Student Name"](https://github.com/chchchelsay/scheduler/blob/master/public/images/6_blankStudentName.png?raw=true)
 !["No Interviewer"](https://github.com/chchchelsay/scheduler/blob/master/public/images/7_noInterviewer.png?raw=true)
+-->
