@@ -30,19 +30,26 @@ export default function useApplicationData() {
 
   const setDay = (day) => setState({ ...state, day });
 
-  function selectDay(day) {
-    const days = {
-      Monday: 0,
-      Tuesday: 1,
-      Wednesday: 2,
-      Thursday: 3,
-      Friday: 4,
-    };
-    return days[day];
-  }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  const updateSpots = function (state, appointments, id) {
+    const day = state.days.find((element) => {
+      return element.appointments.includes(id);
+    });
+    let counter = 0;
+    for (const appointmentId of day.appointments) {
+      if (appointments[appointmentId].interview === null) {
+        counter++;
+      }
+    }
+    const updatedDay = { ...day, spots: counter };
 
-  function bookInterview(id, interview, isEdit) {
+    const updatedDays = [...state.days];
+    const index = day.id - 1;
+    updatedDays[index] = updatedDay;
+    return updatedDays;
+  };
+
+  function bookInterview(id, interview) {
     return axios
       .put(`api/appointments/${id}`, { interview })
       .then((response) => {
@@ -56,11 +63,8 @@ export default function useApplicationData() {
             ...state.appointments,
             [id]: appointment,
           };
-          const days = [...state.days];
 
-          if (isEdit === false) {
-            days[selectDay(state.day)].spots -= 1;
-          }
+          const days = updateSpots(state, appointments, id);
 
           setState({
             ...state,
@@ -90,9 +94,7 @@ export default function useApplicationData() {
             [id]: appointment,
           };
 
-          const days = [...state.days];
-
-          days[selectDay(state.day)].spots += 1;
+          const days = updateSpots(state, appointments, id);
 
           setState({
             ...state,
