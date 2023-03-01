@@ -56,19 +56,9 @@ npm run storybook
 
 ## Screenshots
 
-Current Appointments (Thursday view)
-!["CurrentAppointments"](https://github.com/chchchelsay/scheduler/blob/master/public/images/1_currentState.png?raw=true)
-Add a New Appointment - enter Student and select Interviewer
-!["Add a New Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/2_addNewBooking.png?raw=true)
-New Appointment Added
-!["New Appointment Added"](https://github.com/chchchelsay/scheduler/blob/master/public/images/3_successfulAdd.png?raw=true)
-Edit Appointment - change Student name and selected Interviewer
-!["Edit Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/4_editAppt.png?raw=true)
-Edited Appointment Added
-!["Edited Appointment Added"](https://github.com/chchchelsay/scheduler/blob/master/public/images/8_editedAppt.png?raw=true)
+Add Appointment
+!["Add Appointment"](https://github.com/chchchelsay/scheduler/blob/fixes/public/images/ADD.gif?raw=true)
+Edit Appointment
+!["Edit Appointment"](https://github.com/chchchelsay/scheduler/blob/fixes/public/images/EDIT.gif?raw=true)
 Delete Appointment
-!["Delete Appointment"](https://github.com/chchchelsay/scheduler/blob/master/public/images/5_deleteAppt.png?raw=true)
-!["CurrentAppointments"](https://github.com/chchchelsay/scheduler/blob/master/public/images/1_currentState.png?raw=true)
-Cannot save without a name or selected interviewer
-!["Blank Student Name"](https://github.com/chchchelsay/scheduler/blob/master/public/images/6_blankStudentName.png?raw=true)
-!["No Interviewer"](https://github.com/chchchelsay/scheduler/blob/master/public/images/7_noInterviewer.png?raw=true)
+!["Delete Appointment"](https://github.com/chchchelsay/scheduler/blob/fixes/public/images/DELETE.gif?raw=true)
