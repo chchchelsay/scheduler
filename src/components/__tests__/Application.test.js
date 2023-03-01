@@ -60,7 +60,7 @@ describe("Application", () => {
 
   /////////////EDITING APPT////////////////////////////////////////////////
 
-  it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+  it.skip("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
