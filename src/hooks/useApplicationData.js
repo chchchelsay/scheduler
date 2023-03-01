@@ -31,6 +31,8 @@ export default function useApplicationData() {
   const setDay = (day) => setState({ ...state, day });
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //updateSpots makes sure the right day/appt is accessed for the following book/cancel Interview functions
+ 
   const updateSpots = function (state, appointments, id) {
     const day = state.days.find((element) => {
       return element.appointments.includes(id);
@@ -48,7 +50,7 @@ export default function useApplicationData() {
     updatedDays[index] = updatedDay;
     return updatedDays;
   };
-
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   function bookInterview(id, interview) {
     return axios
       .put(`api/appointments/${id}`, { interview })
