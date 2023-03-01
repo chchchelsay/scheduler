@@ -54,7 +54,7 @@ npm test
 npm run storybook
 ```
 
-## Screenshots
+## In Action
 
 Add Appointment
 !["Add Appointment"](https://github.com/chchchelsay/scheduler/blob/fixes/public/images/ADD.gif?raw=true)
